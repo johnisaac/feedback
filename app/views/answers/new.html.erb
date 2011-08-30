@@ -1,2 +1,7 @@
-<h1>Answers#new</h1>
-<p>Find me in app/views/answers/new.html.erb</p>
+<%=form_for question_answers_path(:question_id => params[:question_id]) do|f|%>
+  <%=f.label :content%>
+  <br/>
+  <%=f.text_field :content%>
+  <br/>
+  <%=f.submit "Create Answer", :disable_with => "Creating..."%>
+<% end %>

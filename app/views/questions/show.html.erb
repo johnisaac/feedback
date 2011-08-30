@@ -1,2 +1,23 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
+<h3>
+  <%=@question.title%>
+</h3>
+<div>
+  <%=@question.content%>
+</div>
+<hr/>
+<%=form_for question_answers_path(:question_id => params[:id]) do|a|%>
+  <%=a.label :content,"your answer"%>
+  <br/>
+  <%=a.text_field :content%>
+  <br/>
+  <%=a.hidden_field :question_id, :value => @question.id%>
+  <br/>
+  <%=a.submit "Create Answer"%>
+<%end%>
+<ul id='answers_list'>
+<%@question.answers.each do|a|%>
+<li>
+  <%=a.content%><%=link_to "edit", edit_question_answer_path( params[:id], a.id)%>| <%=link_to "delete", question_answer_path(params[:id],a.id),:method => :delete %>
+</li>
+<%end%>
+</ul>

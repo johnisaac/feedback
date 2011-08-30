@@ -1,7 +1,8 @@
 Feedback::Application.routes.draw do
 
-  resources :questions
-  resources :answers
+  resources :questions do
+    resources :answers
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

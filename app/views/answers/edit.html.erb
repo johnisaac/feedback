@@ -1,2 +1,7 @@
-<h1>Answers#edit</h1>
-<p>Find me in app/views/answers/edit.html.erb</p>
+<%=form_for @answer, :url => question_answer_path(:question_id => params[:question_id], :id => @answer.id) do|f|%>
+  <%=f.label :content%>
+  <br/>
+  <%=f.text_field :content%>
+  <br/>
+  <%=f.submit "Update Answer", :disable_with => "Updating..."%>
+<% end %>

@@ -1,2 +1,11 @@
-<h1>Questions#edit</h1>
-<p>Find me in app/views/questions/edit.html.erb</p>
+<%=form_for(@question) do|f|%>
+  <%=f.label :title%>
+  <br/>
+  <%=f.text_field :title%>
+  <br/>
+  <%=f.label :content%>
+  <br/>
+  <%=f.text_field :content%>
+  <br/>
+  <%=f.submit "Update Question", :disable_with => "Updating..."%>
+<% end %>

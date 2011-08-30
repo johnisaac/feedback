@@ -1,2 +1,9 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
+<%=link_to "Create new question", new_question_path%>
+<ul id='question_list'>
+  <%@questions.each do|question|%>
+  <li>
+    <%=link_to question.title, question_url(question.id)%><br/>
+    <%=link_to "delete", question_url(question.id), :method => :delete %> <%=link_to "edit", edit_question_path(question.id)%>
+  </li>
+  <% end %>
+</ul>

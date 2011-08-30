@@ -3,25 +3,29 @@ class AnswersController < ApplicationController
   
   def new
     @answer = Answer.new
-    respond_with(@answer)
+    respond_to do|format|
+      format.html
+    end
   end
 
   def create
-    @answer = Answer.new(params[:answer])
+    @answer = Answer.new(params[:Answer])
     if @answer.save
-      respond_with(@answer)
+      redirect_to question_path(params[:question_id])
     else
       render :new
     end
   end
   
   def edit
+    @answer = Answer.find(params[:id])
+    respond_with(@answer)
   end
 
   def update
     @answer = Answer.find(params[:id])
-    if @answer.update_attributes(params[:answer])
-      respond_with(@answer)
+    if @answer.update_attributes(params[:Answer])
+      redirect_to question_path(params[:question_id])
     else
       render :edit
     end
@@ -33,7 +37,7 @@ class AnswersController < ApplicationController
   end
   
   def index
-    @answers = Answer.all
+    @answers = Question.find(params[:question_id]).answers
     respond_with(@answers)
   end
 
