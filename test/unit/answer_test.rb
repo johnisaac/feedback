@@ -9,6 +9,6 @@ class AnswerTest < ActiveSupport::TestCase
 
   def test_presence_of_content
     answer = Answer.new(@answer.merge({:content => nil}))
-    assert answer.invalid?
+    assert answer.invalid?, "Answer must have a content field."
   end
 end
