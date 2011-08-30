@@ -1,5 +1,4 @@
 class QuestionsController < ApplicationController
-  
   respond_to :html, :json, :xml
   def new
     @question = Question.new
@@ -16,6 +15,8 @@ class QuestionsController < ApplicationController
   end
   
   def edit
+    @question = Question.find(params[:id])
+    respond_with(@question)
   end
 
   def update
