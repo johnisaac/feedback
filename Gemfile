@@ -18,6 +18,10 @@ end
 
 gem 'jquery-rails'
 
+group :development do
+  gem 'ZenTest'
+  gem 'autotest-rails'
+end
 # Use unicorn as the web server
 # gem 'unicorn'
 
