@@ -1,23 +1,26 @@
 <h3>
-  <%=@question.title%>
+  <%=@question.title.capitalize%>
 </h3>
 <div>
   <%=@question.content%>
 </div>
 <hr/>
-<%=form_for question_answers_path(:question_id => params[:id]) do|a|%>
-  <%=a.label :content,"your answer"%>
-  <br/>
-  <%=a.text_field :content%>
-  <br/>
+<%=form_for :Answer, :url => "/questions/#{@question.id}/answers", :method => :post do|a|%>
+  <h4>
+    Your Answer
+  </h4>
+  <p class='row'>
+    <%=a.text_area :content, :rows => "7", :class=>'span9 columns'%>
+  </p>
   <%=a.hidden_field :question_id, :value => @question.id%>
-  <br/>
-  <%=a.submit "Create Answer"%>
+  <p>
+    <%=a.submit "Create Answer", :disable_with => "Creating Answer...", :class => "btn primary"%>
+  </p>
 <%end%>
 <ul id='answers_list'>
-<%@question.answers.each do|a|%>
-<li>
-  <%=a.content%><%=link_to "edit", edit_question_answer_path( params[:id], a.id)%>| <%=link_to "delete", question_answer_path(params[:id],a.id),:method => :delete %>
-</li>
-<%end%>
+  <%@question.answers.each do|a|%>
+    <li>
+      <%=a.content%><%=link_to "edit", edit_question_answer_path( params[:id], a.id)%>| <%=link_to "delete", question_answer_path(params[:id],a.id),:method => :delete %>
+    </li>
+  <%end%>
 </ul>

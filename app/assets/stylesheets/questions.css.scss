@@ -1,3 +1,33 @@
 // Place all the styles related to the questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#new_question{
+  position: relative;
+  left: 80%;
+}
+
+#question_list{
+  position: relative;
+  
+  li{
+    list-style-type: none;
+    margin-bottom: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.199219);
+    padding: 3px 5px;
+    position: relative;
+    left: -25px;
+    font-size: 16px;
+  }
+}
+
+#answers_list{
+  li{
+    list-style-type: none;
+    margin-bottom: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.199219);
+    padding: 3px 5px;
+    position: relative;
+    left: -25px; 
+  }
+}

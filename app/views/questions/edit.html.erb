@@ -1,11 +1,19 @@
-<%=form_for(@question) do|f|%>
-  <%=f.label :title%>
-  <br/>
-  <%=f.text_field :title%>
-  <br/>
-  <%=f.label :content%>
-  <br/>
-  <%=f.text_field :content%>
-  <br/>
-  <%=f.submit "Update Question", :disable_with => "Updating..."%>
-<% end %>
+<div class='row'>
+  <%=form_for(@question) do|f|%>
+    <h5>
+      Title
+    </h5>
+    <p class='row'>
+      <%=f.text_field :title, :class => "span9 columns"%>
+    </p>
+  
+    <h5>
+      Content
+    </h5>
+    <p class='row'>
+      <%=f.text_area :content, :rows => "7", :class=>'span9 columns'%>
+    </p>
+  
+    <%=f.submit "Update Question", :disable_with => "Updating...", :class => "btn primary"%>
+  <% end %>
+</div>

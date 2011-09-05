@@ -24,7 +24,7 @@ class AnswersController < ApplicationController
 
   def update
     @answer = Answer.find(params[:id])
-    if @answer.update_attributes(params[:Answer])
+    if @answer.update_attributes(params[:answer])
       redirect_to question_path(params[:question_id])
     else
       render :edit
@@ -44,7 +44,7 @@ class AnswersController < ApplicationController
   def destroy
     @answer = Answer.find(params[:id])
     @answer.destroy
-    redirect_to answers_url
+    redirect_to question_url(params[:question_id])
   end
 
 end

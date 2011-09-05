@@ -1,7 +1,7 @@
-<%=link_to "Create new question", new_question_path%>
+<%=link_to "Create new question", new_question_path, :id => :new_question%>
 <ul id='question_list'>
   <%@questions.each do|question|%>
-  <li>
+  <li class='prettyprint linenums'>
     <%=link_to question.title, question_url(question.id)%><br/>
     <%=link_to "delete", question_url(question.id), :method => :delete %> <%=link_to "edit", edit_question_path(question.id)%>
   </li>

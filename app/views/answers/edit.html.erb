@@ -1,7 +1,16 @@
+<div class="row">
+
+<h4>
+  <%=@answer.question.title.capitalize%>
+</h4>
+
 <%=form_for @answer, :url => question_answer_path(:question_id => params[:question_id], :id => @answer.id) do|f|%>
-  <%=f.label :content%>
-  <br/>
-  <%=f.text_field :content%>
-  <br/>
-  <%=f.submit "Update Answer", :disable_with => "Updating..."%>
+  <p class='row'>
+    <%=f.text_area :content, :rows => "7", :class=>'span9 columns'%>
+  </p>
+  <p>
+    <%=f.submit "Update Answer", :disable_with => "Updating...", :class => "btn primary"%>
+    <button class="btn">Cancel</button>
+  </p>
 <% end %>
+</div>
