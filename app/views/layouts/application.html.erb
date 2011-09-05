@@ -3,12 +3,24 @@
 <head>
   <title>Feedback</title>
   <%= stylesheet_link_tag    "application" %>
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.1.1.min.css">
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="container">
+    <div class='row'>
+      <!-- put your project masthead here -->
+      <!-- puts your navigation, about us or any other useful links here-->
+      <!-- anything you put here will appear at the top of the page-->
+    </div>
+    <div class='row'>
+      <div id='content' class='span10 columns'>
+        <%= yield %>
+      </div>
+      <div id='sidebar' class='span5 columns'>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

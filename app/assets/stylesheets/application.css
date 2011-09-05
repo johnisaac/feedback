@@ -5,3 +5,15 @@
  *= require_self
  *= require_tree . 
 */
+
+#content{
+  background-color: lightgreen;
+  min-height: 100%;
+  height: 100px;
+}
+
+#sidebar{
+  background-color: lightgrey;
+  min-height: 100%;
+  height: 100px;
+}
